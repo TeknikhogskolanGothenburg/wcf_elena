@@ -31,26 +31,65 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CarRentalServiceDL" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IHelloService_GetMessage_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMessage" />
+  <wsdl:message name="IHelloService_GetCarById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarById" />
   </wsdl:message>
-  <wsdl:message name="IHelloService_GetMessage_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  <wsdl:message name="IHelloService_GetCarById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCar" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetAvailableCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableCar" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetAvailableCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableCarResponse" />
   </wsdl:message>
   <wsdl:portType name="IHelloService">
-    <wsdl:operation name="GetMessage">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetMessage" message="tns:IHelloService_GetMessage_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/GetMessageResponse" message="tns:IHelloService_GetMessage_OutputMessage" />
+    <wsdl:operation name="GetCarById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetCarById" message="tns:IHelloService_GetCarById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/GetCarByIdResponse" message="tns:IHelloService_GetCarById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetCar" message="tns:IHelloService_GetCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/GetCarResponse" message="tns:IHelloService_GetCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetAvailableCar" message="tns:IHelloService_GetAvailableCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/GetAvailableCarResponse" message="tns:IHelloService_GetAvailableCar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IHelloService" type="tns:IHelloService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetMessage">
-      <soap:operation soapAction="http://tempuri.org/IHelloService/GetMessage" style="document" />
+    <wsdl:operation name="GetCarById">
+      <soap:operation soapAction="http://tempuri.org/IHelloService/GetCarById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCar">
+      <soap:operation soapAction="http://tempuri.org/IHelloService/GetCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCar">
+      <soap:operation soapAction="http://tempuri.org/IHelloService/GetAvailableCar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -62,8 +101,26 @@
   <wsdl:binding name="NetTcpBinding_IHelloService" type="tns:IHelloService">
     <wsp:PolicyReference URI="#NetTcpBinding_IHelloService_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="GetMessage">
-      <soap12:operation soapAction="http://tempuri.org/IHelloService/GetMessage" style="document" />
+    <wsdl:operation name="GetCarById">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/GetCarById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCar">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/GetCar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCar">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/GetAvailableCar" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -74,14 +131,14 @@
   </wsdl:binding>
   <wsdl:service name="HelloService">
     <wsdl:port name="BasicHttpBinding_IHelloService" binding="tns:BasicHttpBinding_IHelloService">
-      <soap:address location="http://localhost:8080/HelloService" />
+      <soap:address location="http://localhost:8081/HelloService" />
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IHelloService" binding="tns:NetTcpBinding_IHelloService">
-      <soap12:address location="net.tcp://localhost:8090/HelloService" />
+      <soap12:address location="net.tcp://localhost:8091/HelloService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8090/HelloService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/HelloService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-0SEEJUT\joaki</Upn>
+          <Upn>LAPTOP-209FANBV\lena_</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

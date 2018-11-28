@@ -9,17 +9,140 @@
 //------------------------------------------------------------------------------
 
 namespace HelloWebClient.HelloService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Car", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServiceDL")]
+    [System.SerializableAttribute()]
+    public partial class Car : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BrandField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RegnumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int YearField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Brand {
+            get {
+                return this.BrandField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrandField, value) != true)) {
+                    this.BrandField = value;
+                    this.RaisePropertyChanged("Brand");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Model {
+            get {
+                return this.ModelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModelField, value) != true)) {
+                    this.ModelField = value;
+                    this.RaisePropertyChanged("Model");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Regnumber {
+            get {
+                return this.RegnumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RegnumberField, value) != true)) {
+                    this.RegnumberField = value;
+                    this.RaisePropertyChanged("Regnumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Year {
+            get {
+                return this.YearField;
+            }
+            set {
+                if ((this.YearField.Equals(value) != true)) {
+                    this.YearField = value;
+                    this.RaisePropertyChanged("Year");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HelloService.IHelloService")]
     public interface IHelloService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetMessage", ReplyAction="http://tempuri.org/IHelloService/GetMessageResponse")]
-        string GetMessage(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetCarById", ReplyAction="http://tempuri.org/IHelloService/GetCarByIdResponse")]
+        HelloWebClient.HelloService.Car GetCarById(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetMessage", ReplyAction="http://tempuri.org/IHelloService/GetMessageResponse")]
-        System.Threading.Tasks.Task<string> GetMessageAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetCarById", ReplyAction="http://tempuri.org/IHelloService/GetCarByIdResponse")]
+        System.Threading.Tasks.Task<HelloWebClient.HelloService.Car> GetCarByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetCar", ReplyAction="http://tempuri.org/IHelloService/GetCarResponse")]
+        HelloWebClient.HelloService.Car GetCar(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetCar", ReplyAction="http://tempuri.org/IHelloService/GetCarResponse")]
+        System.Threading.Tasks.Task<HelloWebClient.HelloService.Car> GetCarAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetAvailableCar", ReplyAction="http://tempuri.org/IHelloService/GetAvailableCarResponse")]
+        HelloWebClient.HelloService.Car[] GetAvailableCar(System.DateTime startDate, System.DateTime endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetAvailableCar", ReplyAction="http://tempuri.org/IHelloService/GetAvailableCarResponse")]
+        System.Threading.Tasks.Task<HelloWebClient.HelloService.Car[]> GetAvailableCarAsync(System.DateTime startDate, System.DateTime endDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +172,28 @@ namespace HelloWebClient.HelloService {
                 base(binding, remoteAddress) {
         }
         
-        public string GetMessage(string name) {
-            return base.Channel.GetMessage(name);
+        public HelloWebClient.HelloService.Car GetCarById(int id) {
+            return base.Channel.GetCarById(id);
         }
         
-        public System.Threading.Tasks.Task<string> GetMessageAsync(string name) {
-            return base.Channel.GetMessageAsync(name);
+        public System.Threading.Tasks.Task<HelloWebClient.HelloService.Car> GetCarByIdAsync(int id) {
+            return base.Channel.GetCarByIdAsync(id);
+        }
+        
+        public HelloWebClient.HelloService.Car GetCar(string name) {
+            return base.Channel.GetCar(name);
+        }
+        
+        public System.Threading.Tasks.Task<HelloWebClient.HelloService.Car> GetCarAsync(string name) {
+            return base.Channel.GetCarAsync(name);
+        }
+        
+        public HelloWebClient.HelloService.Car[] GetAvailableCar(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.GetAvailableCar(startDate, endDate);
+        }
+        
+        public System.Threading.Tasks.Task<HelloWebClient.HelloService.Car[]> GetAvailableCarAsync(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.GetAvailableCarAsync(startDate, endDate);
         }
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="E+doxewnVNvsbIRGp7W//gkttC4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="jHUL+SD/BDXEEt/v5tAOY8nWjbo=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IHelloService">
       <properties>
@@ -230,10 +230,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IHelloService" contract="HelloService.IHelloService" bindingType="basicHttpBinding" address="http://localhost:8080/HelloService" bindingConfiguration="BasicHttpBinding_IHelloService">
+    <endpoint name="BasicHttpBinding_IHelloService" contract="HelloService.IHelloService" bindingType="basicHttpBinding" address="http://localhost:8081/HelloService" bindingConfiguration="BasicHttpBinding_IHelloService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8080/HelloService</serializedValue>
+          <serializedValue>http://localhost:8081/HelloService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -315,10 +315,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IHelloService" contract="HelloService.IHelloService" bindingType="netTcpBinding" address="net.tcp://localhost:8090/HelloService" bindingConfiguration="NetTcpBinding_IHelloService">
+    <endpoint name="NetTcpBinding_IHelloService" contract="HelloService.IHelloService" bindingType="netTcpBinding" address="net.tcp://localhost:8091/HelloService" bindingConfiguration="NetTcpBinding_IHelloService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:8090/HelloService</serializedValue>
+          <serializedValue>net.tcp://localhost:8091/HelloService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -345,7 +345,7 @@
           <serializedValue>System.ServiceModel.Configuration.UserPrincipalNameElement</serializedValue>
         </property>
         <property path="/identity/userPrincipalName/value" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DESKTOP-0SEEJUT\joaki</serializedValue>
+          <serializedValue>LAPTOP-209FANBV\lena_</serializedValue>
         </property>
         <property path="/identity/servicePrincipalName" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.ServicePrincipalNameElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.ServicePrincipalNameElement</serializedValue>

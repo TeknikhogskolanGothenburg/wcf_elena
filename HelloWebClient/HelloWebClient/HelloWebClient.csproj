@@ -7,13 +7,13 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A63BE5B4-DCE5-40F5-941F-E5E15269A319}</ProjectGuid>
+    <ProjectGuid>{BD7B8946-DBE8-4392-8587-A35AB370E850}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HelloWebClient</RootNamespace>
     <AssemblyName>HelloWebClient</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -71,6 +71,9 @@
   <ItemGroup>
     <Content Include="WebForm1.aspx" />
     <None Include="Connected Services\HelloService\HelloService.wsdl" />
+    <Content Include="Connected Services\HelloService\HelloWebClient.HelloService.Car.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\HelloService\item.disco" />
     <None Include="Connected Services\HelloService\configuration91.svcinfo" />
     <None Include="Connected Services\HelloService\configuration.svcinfo" />
@@ -79,12 +82,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Web.config" />
-    <None Include="Connected Services\HelloService\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\HelloService\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connected Services\HelloService\Reference.cs">
@@ -102,6 +99,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\HelloService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HelloService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HelloService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -129,9 +135,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54299</DevelopmentServerPort>
+          <DevelopmentServerPort>63212</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54299/</IISUrl>
+          <IISUrl>http://localhost:63212/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
