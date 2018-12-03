@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://arthead.se/Customer" elementFormDefault="qualified" targetNamespace="http://arthead.se/Customer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="CustomerRequestObject">
+<xs:schema xmlns:tns="http://arthead.se/Car" elementFormDefault="qualified" targetNamespace="http://arthead.se/Car" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8081/?xsd=xsd4" namespace="http://arthead.se/Customer" />
+  <xs:element name="CarInfoObject">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="CustomerLastName" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LicenseKey" nillable="true" type="xs:string" />
-  <xs:element name="CustomerInfoObject">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:int" />
-        <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://arthead.se/Customer" minOccurs="0" ref="q1:Id" />
+        <xs:element xmlns:q2="http://arthead.se/Customer" minOccurs="0" ref="q2:Brand" />
+        <xs:element xmlns:q3="http://arthead.se/Customer" minOccurs="0" ref="q3:Model" />
+        <xs:element xmlns:q4="http://arthead.se/Customer" minOccurs="0" ref="q4:Year" />
+        <xs:element xmlns:q5="http://arthead.se/Customer" minOccurs="0" ref="q5:Regnumber" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

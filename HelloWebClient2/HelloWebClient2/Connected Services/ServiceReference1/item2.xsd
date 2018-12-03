@@ -44,6 +44,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllCars">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCarsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CarRentalServiceDL" minOccurs="0" name="GetAllCarsResult" nillable="true" type="q4:ArrayOfCar" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DeleteCar">
     <xs:complexType>
       <xs:sequence>
@@ -67,6 +79,18 @@
   <xs:element name="DeleteCustomerResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReservations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReservationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CarRentalServiceDL" minOccurs="0" name="GetAllReservationsResult" nillable="true" type="q5:ArrayOfReservation" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

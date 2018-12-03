@@ -23,14 +23,18 @@ namespace CarRentalServiceBL
             return _context.Reservations.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public bool AddReservation(Reservation reservation)
+        public bool AddReservation(int carId, int customerId, DateTime startDate, DateTime endDate, bool returned) 
         {
             try
             {
-                //get car
-                //reservation.Car = carMethods.GetCarById(reservation.CarId);
-                //get customer
-                //reservation.Customer = customerMethods.GetCustomerById(reservation.CustomerId);
+                Reservation reservation = new Reservation
+                {
+                    CarId = carId,
+                    CustomerId = customerId,
+                    StartDate = startDate,
+                    EndDate = endDate,
+                    Returned = returned
+                };
                 _context.Reservations.Add(reservation);
                 _context.SaveChanges();
                 return true;

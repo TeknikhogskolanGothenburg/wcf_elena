@@ -130,7 +130,6 @@
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
           <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
@@ -146,7 +145,6 @@
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
           <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
@@ -196,6 +194,82 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_GetAllCars_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_GetAllCars_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_SaveCar_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_SaveCar_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_GetCustomer_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -210,10 +284,6 @@
           <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
         </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="LicenseKey" Namespace="http://arthead.se/Customer" />
-        </sp:EncryptedParts>
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
@@ -230,9 +300,6 @@
           <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
           <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
         </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
@@ -470,6 +537,82 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_AddReservation_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_AddReservation_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_GetAllReservations_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IHelloService_GetAllReservations_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_IHelloService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -504,8 +647,9 @@
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CarRentalServiceDL" />
-      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd3" namespace="http://arthead.se/Customer" />
-      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd4" namespace="http://arthead.se/Reservation" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd3" namespace="http://arthead.se/Car" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd4" namespace="http://arthead.se/Customer" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd5" namespace="http://arthead.se/Reservation" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IHelloService_GetCarById_InputMessage">
@@ -526,33 +670,43 @@
   <wsdl:message name="IHelloService_GetCarByString_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCarByStringResponse" />
   </wsdl:message>
+  <wsdl:message name="IHelloService_GetAllCars_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCars" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetAllCars_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CarInfo">
+    <wsdl:part xmlns:q1="http://arthead.se/Car" name="parameters" element="q1:CarInfoObject" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_SaveCar_OutputMessage" />
   <wsdl:message name="CustomerRequest">
-    <wsdl:part xmlns:q1="http://arthead.se/Customer" name="parameters" element="q1:CustomerRequestObject" />
+    <wsdl:part xmlns:q2="http://arthead.se/Customer" name="parameters" element="q2:CustomerRequestObject" />
   </wsdl:message>
   <wsdl:message name="CustomerRequest_Headers">
-    <wsdl:part xmlns:q2="http://arthead.se/Customer" name="LicenseKey" element="q2:LicenseKey" />
+    <wsdl:part xmlns:q3="http://arthead.se/Customer" name="LicenseKey" element="q3:LicenseKey" />
   </wsdl:message>
   <wsdl:message name="CustomerInfo">
-    <wsdl:part xmlns:q3="http://arthead.se/Customer" name="parameters" element="q3:CustomerInfoObject" />
+    <wsdl:part xmlns:q4="http://arthead.se/Customer" name="parameters" element="q4:CustomerInfoObject" />
   </wsdl:message>
   <wsdl:message name="IHelloService_SaveCustomer_OutputMessage" />
   <wsdl:message name="ReservationRequestByBrand">
-    <wsdl:part xmlns:q4="http://arthead.se/Reservation" name="parameters" element="q4:ReservationRequestBrandObject" />
+    <wsdl:part xmlns:q5="http://arthead.se/Reservation" name="parameters" element="q5:ReservationRequestBrandObject" />
   </wsdl:message>
   <wsdl:message name="ReservationRequestByBrand_Headers">
-    <wsdl:part xmlns:q5="http://arthead.se/Reservation" name="LicenseKey" element="q5:LicenseKey" />
+    <wsdl:part xmlns:q6="http://arthead.se/Reservation" name="LicenseKey" element="q6:LicenseKey" />
   </wsdl:message>
   <wsdl:message name="ReservationInfo">
-    <wsdl:part xmlns:q6="http://arthead.se/Reservation" name="parameters" element="q6:ReservationInfoObject" />
+    <wsdl:part xmlns:q7="http://arthead.se/Reservation" name="parameters" element="q7:ReservationInfoObject" />
   </wsdl:message>
   <wsdl:message name="ReservationRequestByDate">
-    <wsdl:part xmlns:q7="http://arthead.se/Reservation" name="parameters" element="q7:ReservationRequestDateObject" />
+    <wsdl:part xmlns:q8="http://arthead.se/Reservation" name="parameters" element="q8:ReservationRequestDateObject" />
   </wsdl:message>
   <wsdl:message name="ReservationRequestByDate_Headers">
-    <wsdl:part xmlns:q8="http://arthead.se/Reservation" name="LicenseKey" element="q8:LicenseKey" />
+    <wsdl:part xmlns:q9="http://arthead.se/Reservation" name="LicenseKey" element="q9:LicenseKey" />
   </wsdl:message>
   <wsdl:message name="ListReservationsInfo">
-    <wsdl:part xmlns:q9="http://arthead.se/Reservation" name="parameters" element="q9:ListReservationsInfoObject" />
+    <wsdl:part xmlns:q10="http://arthead.se/Reservation" name="parameters" element="q10:ListReservationsInfoObject" />
   </wsdl:message>
   <wsdl:message name="IHelloService_DeleteCar_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCar" />
@@ -566,6 +720,13 @@
   <wsdl:message name="IHelloService_DeleteCustomer_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
   </wsdl:message>
+  <wsdl:message name="IHelloService_AddReservation_OutputMessage" />
+  <wsdl:message name="IHelloService_GetAllReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReservations" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetAllReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReservationsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IHelloService">
     <wsdl:operation name="GetCarById">
       <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetCarById" message="tns:IHelloService_GetCarById_InputMessage" />
@@ -578,6 +739,14 @@
     <wsdl:operation name="GetCarByString">
       <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetCarByString" message="tns:IHelloService_GetCarByString_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/GetCarByStringResponse" message="tns:IHelloService_GetCarByString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCars">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetAllCars" message="tns:IHelloService_GetAllCars_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/GetAllCarsResponse" message="tns:IHelloService_GetAllCars_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/SaveCar" name="CarInfo" message="tns:CarInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/SaveCarResponse" message="tns:IHelloService_SaveCar_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetCustomer" name="CustomerRequest" message="tns:CustomerRequest" />
@@ -606,6 +775,14 @@
     <wsdl:operation name="DeleteCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/DeleteCustomer" message="tns:IHelloService_DeleteCustomer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/DeleteCustomerResponse" message="tns:IHelloService_DeleteCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/AddReservation" name="ReservationInfo" message="tns:ReservationInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/AddReservationResponse" message="tns:IHelloService_AddReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelloService/GetAllReservations" message="tns:IHelloService_GetAllReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelloService/GetAllReservationsResponse" message="tns:IHelloService_GetAllReservations_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IHelloService" type="tns:IHelloService">
@@ -641,6 +818,28 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_GetCarByString_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCars">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/GetAllCars" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_GetAllCars_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_GetAllCars_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCar">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/SaveCar" style="document" />
+      <wsdl:input name="CarInfo">
+        <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_SaveCar_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_SaveCar_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -725,6 +924,28 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddReservation">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/AddReservation" style="document" />
+      <wsdl:input name="ReservationInfo">
+        <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_AddReservation_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_AddReservation_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReservations">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/GetAllReservations" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_GetAllReservations_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IHelloService_GetAllReservations_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IHelloService" type="tns:IHelloService">
     <wsp:PolicyReference URI="#NetTcpBinding_IHelloService_policy" />
@@ -750,6 +971,24 @@
     <wsdl:operation name="GetCarByString">
       <soap12:operation soapAction="http://tempuri.org/IHelloService/GetCarByString" style="document" />
       <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCars">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/GetAllCars" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCar">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/SaveCar" style="document" />
+      <wsdl:input name="CarInfo">
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
@@ -816,6 +1055,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteCustomer">
       <soap12:operation soapAction="http://tempuri.org/IHelloService/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReservation">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/AddReservation" style="document" />
+      <wsdl:input name="ReservationInfo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReservations">
+      <soap12:operation soapAction="http://tempuri.org/IHelloService/GetAllReservations" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

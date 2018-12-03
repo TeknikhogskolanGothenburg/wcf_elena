@@ -23,6 +23,12 @@ namespace HelloService
         [OperationContract]
         Car GetCarByString(string option, string term);
 
+        [OperationContract]
+        List<Car> GetAllCars();
+
+        [OperationContract]
+        void SaveCar(CarInfo car);
+
         [OperationContract(ProtectionLevel = ProtectionLevel.Sign)]
         CustomerInfo GetCustomer(CustomerRequest customer);
 
@@ -44,6 +50,13 @@ namespace HelloService
         [OperationContract]
         void DeleteCustomer(string option, string name);
 
+        [OperationContract]
+        void AddReservation(ReservationInfo reservation);
 
+        //[OperationContract]
+        //void AddNewCustomer(Customer customer);
+
+        [OperationContract]
+        List<Reservation> GetAllReservations();
     }
 }

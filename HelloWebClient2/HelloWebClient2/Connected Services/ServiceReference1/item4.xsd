@@ -2,14 +2,20 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CarRentalServiceDL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CarRentalServiceDL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="Car">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Regnumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Year" type="xs:int" />
+      <xs:element minOccurs="0" name="_Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="_Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Regnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Year" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Car" nillable="true" type="tns:Car" />
+  <xs:complexType name="ArrayOfCar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCar" nillable="true" type="tns:ArrayOfCar" />
   <xs:complexType name="ArrayOfReservationInfo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationInfo" nillable="true" type="tns:ReservationInfo" />
@@ -21,11 +27,43 @@
       <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Regnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Returned" type="xs:boolean" />
       <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Year" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ReservationInfo" nillable="true" type="tns:ReservationInfo" />
+  <xs:complexType name="ArrayOfReservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reservation" nillable="true" type="tns:Reservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReservation" nillable="true" type="tns:ArrayOfReservation" />
+  <xs:complexType name="Reservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Car" nillable="true" type="tns:Car" />
+      <xs:element minOccurs="0" name="CarId" type="xs:int" />
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Returned" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reservation" nillable="true" type="tns:Reservation" />
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Reservations" nillable="true" type="tns:ArrayOfReservation" />
+      <xs:element minOccurs="0" name="_Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="_LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
 </xs:schema>

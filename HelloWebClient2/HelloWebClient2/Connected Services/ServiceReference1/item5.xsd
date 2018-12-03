@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://arthead.se/Reservation" elementFormDefault="qualified" targetNamespace="http://arthead.se/Reservation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CarRentalServiceDL" />
+  <xs:element name="ReservationRequestBrandObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CarBrand" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LicenseKey" nillable="true" type="xs:string" />
+  <xs:element name="ReservationInfoObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+        <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Regnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Year" type="xs:int" />
+        <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Returned" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReservationRequestDateObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Enddate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Startdate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListReservationsInfoObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CarRentalServiceDL" minOccurs="0" name="ReservationCollection" nillable="true" type="q1:ArrayOfReservationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -23,7 +23,6 @@ namespace HelloService
             return carMethods.GetCarByRegnum(name);
         }
 
-
         public Car GetCarByString(string option, string term)
         {
 
@@ -65,6 +64,48 @@ namespace HelloService
             }
 
             return car;
+        }
+
+        public void SaveCar(CarInfo car)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand("spAddNewCar", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter parameterBrand = new SqlParameter
+                {
+                    ParameterName = "@Brand",
+                    Value = car.Brand
+                };
+                cmd.Parameters.Add(parameterBrand);
+
+                SqlParameter parameterModel = new SqlParameter
+                {
+                    ParameterName = "@Model",
+                    Value = car.Model
+                };
+                cmd.Parameters.Add(parameterModel);
+
+                SqlParameter parameterYear = new SqlParameter
+                {
+                    ParameterName = "@Year",
+                    Value = car.Year
+                };
+                cmd.Parameters.Add(parameterYear);
+
+                SqlParameter parameterReg = new SqlParameter
+                {
+                    ParameterName = "@Regnumber",
+                    Value = car.Regnumber
+                };
+                cmd.Parameters.Add(parameterReg);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public void DeleteCar(string regnum)
@@ -116,42 +157,45 @@ namespace HelloService
         public void SaveCustomer(CustomerInfo customer)
         {
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-
-            using (SqlConnection con = new SqlConnection(cs))
+            Customer existingCustumer = customerMethods.GetCustomer("lastname", customer.LastName);
+            if (existingCustumer == null)
             {
-                SqlCommand cmd = new SqlCommand("spAddNewCustomer", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter parameterFirstname = new SqlParameter
+                using (SqlConnection con = new SqlConnection(cs))
                 {
-                    ParameterName = "@FirstName",
-                    Value = customer.FirstName
-                };
-                cmd.Parameters.Add(parameterFirstname);
+                    SqlCommand cmd = new SqlCommand("spAddNewCustomer", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter parameterLastname = new SqlParameter
-                {
-                    ParameterName = "@LastName",
-                    Value = customer.LastName
-                };
-                cmd.Parameters.Add(parameterLastname);
+                    SqlParameter parameterFirstname = new SqlParameter
+                    {
+                        ParameterName = "@FirstName",
+                        Value = customer.FirstName
+                    };
+                    cmd.Parameters.Add(parameterFirstname);
 
-                SqlParameter parameterPhone = new SqlParameter
-                {
-                    ParameterName = "@Phone",
-                    Value = customer.Phone
-                };
-                cmd.Parameters.Add(parameterPhone);
+                    SqlParameter parameterLastname = new SqlParameter
+                    {
+                        ParameterName = "@LastName",
+                        Value = customer.LastName
+                    };
+                    cmd.Parameters.Add(parameterLastname);
 
-                SqlParameter parameterEmail = new SqlParameter
-                {
-                    ParameterName = "@Email",
-                    Value = customer.Email
-                };
-                cmd.Parameters.Add(parameterEmail);
+                    SqlParameter parameterPhone = new SqlParameter
+                    {
+                        ParameterName = "@Phone",
+                        Value = customer.Phone
+                    };
+                    cmd.Parameters.Add(parameterPhone);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
+                    SqlParameter parameterEmail = new SqlParameter
+                    {
+                        ParameterName = "@Email",
+                        Value = customer.Email
+                    };
+                    cmd.Parameters.Add(parameterEmail);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
 
@@ -303,10 +347,76 @@ namespace HelloService
             }
         }
 
+        public List<Reservation> GetAllReservations()
+        {
+            return reservMethods.GetAllReservations();
+        }
+
+        public List<Car> GetAllCars()
+        {
+            return carMethods.GetCars();
+        }
+
+
         public void DeleteCustomer(string option, string name)
         {
             customerMethods.RemoveCustomer(option, name);
 
         }
+
+
+        public void AddReservation(ReservationInfo reservation)
+        {
+
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+            Car car = carMethods.GetCarByRegnum(reservation.Regnumber);
+            Customer customer = customerMethods.GetCustomer("lastname", reservation.LastName);
+
+              using (SqlConnection con = new SqlConnection(cs))
+                {
+                SqlCommand cmd = new SqlCommand("spAddNewReservation", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter parameterCarId = new SqlParameter
+                {
+                    ParameterName = "@CarId",
+                    Value = car.Id
+                };
+                cmd.Parameters.Add(parameterCarId);
+
+                SqlParameter parameterCustomerId = new SqlParameter
+                {
+                    ParameterName = "@CustomerId",
+                    Value = customer.Id
+                };
+                cmd.Parameters.Add(parameterCustomerId);
+
+                SqlParameter parameterStartDate = new SqlParameter
+                {
+                    ParameterName = "@StartDate",
+                    Value = reservation.StartDate
+                };
+                cmd.Parameters.Add(parameterStartDate);
+
+                SqlParameter parameterEndDate = new SqlParameter
+                {
+                    ParameterName = "@EndDate",
+                    Value = reservation.EndDate
+                };
+                cmd.Parameters.Add(parameterEndDate);
+
+                SqlParameter parameterReturned = new SqlParameter
+                {
+                    ParameterName = "@Returned",
+                    Value = reservation.Returned
+                };
+                cmd.Parameters.Add(parameterReturned);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+           
+        }
+
     }
 }

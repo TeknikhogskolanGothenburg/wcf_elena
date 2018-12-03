@@ -23,19 +23,19 @@ namespace HelloWebClient2.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BrandField;
+        private string _BrandField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        private int _IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModelField;
+        private string _ModelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RegnumberField;
+        private string _RegnumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int YearField;
+        private int _YearField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -48,66 +48,66 @@ namespace HelloWebClient2.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Brand {
+        public string _Brand {
             get {
-                return this.BrandField;
+                return this._BrandField;
             }
             set {
-                if ((object.ReferenceEquals(this.BrandField, value) != true)) {
-                    this.BrandField = value;
-                    this.RaisePropertyChanged("Brand");
+                if ((object.ReferenceEquals(this._BrandField, value) != true)) {
+                    this._BrandField = value;
+                    this.RaisePropertyChanged("_Brand");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
+        public int _Id {
             get {
-                return this.IdField;
+                return this._IdField;
             }
             set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
+                if ((this._IdField.Equals(value) != true)) {
+                    this._IdField = value;
+                    this.RaisePropertyChanged("_Id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Model {
+        public string _Model {
             get {
-                return this.ModelField;
+                return this._ModelField;
             }
             set {
-                if ((object.ReferenceEquals(this.ModelField, value) != true)) {
-                    this.ModelField = value;
-                    this.RaisePropertyChanged("Model");
+                if ((object.ReferenceEquals(this._ModelField, value) != true)) {
+                    this._ModelField = value;
+                    this.RaisePropertyChanged("_Model");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Regnumber {
+        public string _Regnumber {
             get {
-                return this.RegnumberField;
+                return this._RegnumberField;
             }
             set {
-                if ((object.ReferenceEquals(this.RegnumberField, value) != true)) {
-                    this.RegnumberField = value;
-                    this.RaisePropertyChanged("Regnumber");
+                if ((object.ReferenceEquals(this._RegnumberField, value) != true)) {
+                    this._RegnumberField = value;
+                    this.RaisePropertyChanged("_Regnumber");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Year {
+        public int _Year {
             get {
-                return this.YearField;
+                return this._YearField;
             }
             set {
-                if ((this.YearField.Equals(value) != true)) {
-                    this.YearField = value;
-                    this.RaisePropertyChanged("Year");
+                if ((this._YearField.Equals(value) != true)) {
+                    this._YearField = value;
+                    this.RaisePropertyChanged("_Year");
                 }
             }
         }
@@ -141,10 +141,16 @@ namespace HelloWebClient2.ServiceReference1 {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ModelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RegnumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ReturnedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
@@ -202,6 +208,19 @@ namespace HelloWebClient2.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Model {
             get {
                 return this.ModelField;
@@ -223,6 +242,19 @@ namespace HelloWebClient2.ServiceReference1 {
                 if ((object.ReferenceEquals(this.RegnumberField, value) != true)) {
                     this.RegnumberField = value;
                     this.RaisePropertyChanged("Regnumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Returned {
+            get {
+                return this.ReturnedField;
+            }
+            set {
+                if ((this.ReturnedField.Equals(value) != true)) {
+                    this.ReturnedField = value;
+                    this.RaisePropertyChanged("Returned");
                 }
             }
         }
@@ -263,6 +295,288 @@ namespace HelloWebClient2.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Reservation", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServiceDL")]
+    [System.SerializableAttribute()]
+    public partial class Reservation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HelloWebClient2.ServiceReference1.Car CarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CarIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HelloWebClient2.ServiceReference1.Customer CustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CustomerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ReturnedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HelloWebClient2.ServiceReference1.Car Car {
+            get {
+                return this.CarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CarField, value) != true)) {
+                    this.CarField = value;
+                    this.RaisePropertyChanged("Car");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CarId {
+            get {
+                return this.CarIdField;
+            }
+            set {
+                if ((this.CarIdField.Equals(value) != true)) {
+                    this.CarIdField = value;
+                    this.RaisePropertyChanged("CarId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HelloWebClient2.ServiceReference1.Customer Customer {
+            get {
+                return this.CustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerField, value) != true)) {
+                    this.CustomerField = value;
+                    this.RaisePropertyChanged("Customer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CustomerId {
+            get {
+                return this.CustomerIdField;
+            }
+            set {
+                if ((this.CustomerIdField.Equals(value) != true)) {
+                    this.CustomerIdField = value;
+                    this.RaisePropertyChanged("CustomerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((this.EndDateField.Equals(value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Returned {
+            get {
+                return this.ReturnedField;
+            }
+            set {
+                if ((this.ReturnedField.Equals(value) != true)) {
+                    this.ReturnedField = value;
+                    this.RaisePropertyChanged("Returned");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServiceDL")]
+    [System.SerializableAttribute()]
+    public partial class Customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation> ReservationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int _IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _PhoneField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation> Reservations {
+            get {
+                return this.ReservationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReservationsField, value) != true)) {
+                    this.ReservationsField = value;
+                    this.RaisePropertyChanged("Reservations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _Email {
+            get {
+                return this._EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._EmailField, value) != true)) {
+                    this._EmailField = value;
+                    this.RaisePropertyChanged("_Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _FirstName {
+            get {
+                return this._FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._FirstNameField, value) != true)) {
+                    this._FirstNameField = value;
+                    this.RaisePropertyChanged("_FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int _Id {
+            get {
+                return this._IdField;
+            }
+            set {
+                if ((this._IdField.Equals(value) != true)) {
+                    this._IdField = value;
+                    this.RaisePropertyChanged("_Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _LastName {
+            get {
+                return this._LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._LastNameField, value) != true)) {
+                    this._LastNameField = value;
+                    this.RaisePropertyChanged("_LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _Phone {
+            get {
+                return this._PhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._PhoneField, value) != true)) {
+                    this._PhoneField = value;
+                    this.RaisePropertyChanged("_Phone");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IHelloService")]
     public interface IHelloService {
@@ -273,10 +587,10 @@ namespace HelloWebClient2.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.None, Action="http://tempuri.org/IHelloService/GetCarById", ReplyAction="http://tempuri.org/IHelloService/GetCarByIdResponse")]
         System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.Car> GetCarByIdAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.Sign, Action="http://tempuri.org/IHelloService/GetCarByReg", ReplyAction="http://tempuri.org/IHelloService/GetCarByRegResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.None, Action="http://tempuri.org/IHelloService/GetCarByReg", ReplyAction="http://tempuri.org/IHelloService/GetCarByRegResponse")]
         HelloWebClient2.ServiceReference1.Car GetCarByReg(string name);
         
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.Sign, Action="http://tempuri.org/IHelloService/GetCarByReg", ReplyAction="http://tempuri.org/IHelloService/GetCarByRegResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.None, Action="http://tempuri.org/IHelloService/GetCarByReg", ReplyAction="http://tempuri.org/IHelloService/GetCarByRegResponse")]
         System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.Car> GetCarByRegAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetCarByString", ReplyAction="http://tempuri.org/IHelloService/GetCarByStringResponse")]
@@ -285,11 +599,24 @@ namespace HelloWebClient2.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetCarByString", ReplyAction="http://tempuri.org/IHelloService/GetCarByStringResponse")]
         System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.Car> GetCarByStringAsync(string option, string term);
         
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetCustomer", ReplyAction="http://tempuri.org/IHelloService/GetCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetAllCars", ReplyAction="http://tempuri.org/IHelloService/GetAllCarsResponse")]
+        System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Car> GetAllCars();
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetAllCars", ReplyAction="http://tempuri.org/IHelloService/GetAllCarsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Car>> GetAllCarsAsync();
+        
+        // CODEGEN: Generating message contract since the operation SaveCar is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/SaveCar", ReplyAction="http://tempuri.org/IHelloService/SaveCarResponse")]
+        HelloWebClient2.ServiceReference1.SaveCarResponse SaveCar(HelloWebClient2.ServiceReference1.CarInfo request);
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/SaveCar", ReplyAction="http://tempuri.org/IHelloService/SaveCarResponse")]
+        System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.SaveCarResponse> SaveCarAsync(HelloWebClient2.ServiceReference1.CarInfo request);
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.Sign, Action="http://tempuri.org/IHelloService/GetCustomer", ReplyAction="http://tempuri.org/IHelloService/GetCustomerResponse")]
         HelloWebClient2.ServiceReference1.CustomerInfo GetCustomer(HelloWebClient2.ServiceReference1.CustomerRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetCustomer", ReplyAction="http://tempuri.org/IHelloService/GetCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.Sign, Action="http://tempuri.org/IHelloService/GetCustomer", ReplyAction="http://tempuri.org/IHelloService/GetCustomerResponse")]
         System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.CustomerInfo> GetCustomerAsync(HelloWebClient2.ServiceReference1.CustomerRequest request);
         
         // CODEGEN: Generating message contract since the operation SaveCustomer is neither RPC nor document wrapped.
@@ -331,6 +658,62 @@ namespace HelloWebClient2.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/DeleteCustomer", ReplyAction="http://tempuri.org/IHelloService/DeleteCustomerResponse")]
         System.Threading.Tasks.Task DeleteCustomerAsync(string option, string name);
+        
+        // CODEGEN: Generating message contract since the operation AddReservation is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/AddReservation", ReplyAction="http://tempuri.org/IHelloService/AddReservationResponse")]
+        HelloWebClient2.ServiceReference1.AddReservationResponse AddReservation(HelloWebClient2.ServiceReference1.ReservationInfo1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/AddReservation", ReplyAction="http://tempuri.org/IHelloService/AddReservationResponse")]
+        System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.AddReservationResponse> AddReservationAsync(HelloWebClient2.ServiceReference1.ReservationInfo1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetAllReservations", ReplyAction="http://tempuri.org/IHelloService/GetAllReservationsResponse")]
+        System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation> GetAllReservations();
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetAllReservations", ReplyAction="http://tempuri.org/IHelloService/GetAllReservationsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation>> GetAllReservationsAsync();
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CarInfoObject", WrapperNamespace="http://arthead.se/Car", IsWrapped=true)]
+    public partial class CarInfo {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Customer", Order=0)]
+        public int Id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Customer", Order=1)]
+        public string Brand;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Customer", Order=2)]
+        public string Model;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Customer", Order=3)]
+        public int Year;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Customer", Order=4)]
+        public string Regnumber;
+        
+        public CarInfo() {
+        }
+        
+        public CarInfo(int Id, string Brand, string Model, int Year, string Regnumber) {
+            this.Id = Id;
+            this.Brand = Brand;
+            this.Model = Model;
+            this.Year = Year;
+            this.Regnumber = Regnumber;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SaveCarResponse {
+        
+        public SaveCarResponse() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -433,25 +816,33 @@ namespace HelloWebClient2.ServiceReference1 {
         public string Regnumber;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Reservation", Order=4)]
-        public int Year;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Reservation", Order=5)]
         public System.DateTime StartDate;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Reservation", Order=6)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Reservation", Order=5)]
         public System.DateTime EndDate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Reservation", Order=6)]
+        public int Year;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Reservation", Order=7)]
+        public string LastName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://arthead.se/Reservation", Order=8)]
+        public bool Returned;
         
         public ReservationInfo1() {
         }
         
-        public ReservationInfo1(int Id, string Brand, string Model, string Regnumber, int Year, System.DateTime StartDate, System.DateTime EndDate) {
+        public ReservationInfo1(int Id, string Brand, string Model, string Regnumber, System.DateTime StartDate, System.DateTime EndDate, int Year, string LastName, bool Returned) {
             this.Id = Id;
             this.Brand = Brand;
             this.Model = Model;
             this.Regnumber = Regnumber;
-            this.Year = Year;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
+            this.Year = Year;
+            this.LastName = LastName;
+            this.Returned = Returned;
         }
     }
     
@@ -494,6 +885,16 @@ namespace HelloWebClient2.ServiceReference1 {
         
         public ListReservationsInfo(System.Collections.Generic.List<HelloWebClient2.ServiceReference1.ReservationInfo> ReservationCollection) {
             this.ReservationCollection = ReservationCollection;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddReservationResponse {
+        
+        public AddReservationResponse() {
         }
     }
     
@@ -546,6 +947,44 @@ namespace HelloWebClient2.ServiceReference1 {
         
         public System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.Car> GetCarByStringAsync(string option, string term) {
             return base.Channel.GetCarByStringAsync(option, term);
+        }
+        
+        public System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Car> GetAllCars() {
+            return base.Channel.GetAllCars();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Car>> GetAllCarsAsync() {
+            return base.Channel.GetAllCarsAsync();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HelloWebClient2.ServiceReference1.SaveCarResponse HelloWebClient2.ServiceReference1.IHelloService.SaveCar(HelloWebClient2.ServiceReference1.CarInfo request) {
+            return base.Channel.SaveCar(request);
+        }
+        
+        public void SaveCar(int Id, string Brand, string Model, int Year, string Regnumber) {
+            HelloWebClient2.ServiceReference1.CarInfo inValue = new HelloWebClient2.ServiceReference1.CarInfo();
+            inValue.Id = Id;
+            inValue.Brand = Brand;
+            inValue.Model = Model;
+            inValue.Year = Year;
+            inValue.Regnumber = Regnumber;
+            HelloWebClient2.ServiceReference1.SaveCarResponse retVal = ((HelloWebClient2.ServiceReference1.IHelloService)(this)).SaveCar(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.SaveCarResponse> HelloWebClient2.ServiceReference1.IHelloService.SaveCarAsync(HelloWebClient2.ServiceReference1.CarInfo request) {
+            return base.Channel.SaveCarAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.SaveCarResponse> SaveCarAsync(int Id, string Brand, string Model, int Year, string Regnumber) {
+            HelloWebClient2.ServiceReference1.CarInfo inValue = new HelloWebClient2.ServiceReference1.CarInfo();
+            inValue.Id = Id;
+            inValue.Brand = Brand;
+            inValue.Model = Model;
+            inValue.Year = Year;
+            inValue.Regnumber = Regnumber;
+            return ((HelloWebClient2.ServiceReference1.IHelloService)(this)).SaveCarAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -604,7 +1043,7 @@ namespace HelloWebClient2.ServiceReference1 {
             return base.Channel.GetReservationByBrand(request);
         }
         
-        public int GetReservationByBrand(string LicenseKey, string CarBrand, out string Brand, out string Model, out string Regnumber, out int Year, out System.DateTime StartDate, out System.DateTime EndDate) {
+        public int GetReservationByBrand(string LicenseKey, string CarBrand, out string Brand, out string Model, out string Regnumber, out System.DateTime StartDate, out System.DateTime EndDate, out int Year, out string LastName, out bool Returned) {
             HelloWebClient2.ServiceReference1.ReservationRequestByBrand inValue = new HelloWebClient2.ServiceReference1.ReservationRequestByBrand();
             inValue.LicenseKey = LicenseKey;
             inValue.CarBrand = CarBrand;
@@ -612,9 +1051,11 @@ namespace HelloWebClient2.ServiceReference1 {
             Brand = retVal.Brand;
             Model = retVal.Model;
             Regnumber = retVal.Regnumber;
-            Year = retVal.Year;
             StartDate = retVal.StartDate;
             EndDate = retVal.EndDate;
+            Year = retVal.Year;
+            LastName = retVal.LastName;
+            Returned = retVal.Returned;
             return retVal.Id;
         }
         
@@ -690,6 +1131,52 @@ namespace HelloWebClient2.ServiceReference1 {
         
         public System.Threading.Tasks.Task DeleteCustomerAsync(string option, string name) {
             return base.Channel.DeleteCustomerAsync(option, name);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HelloWebClient2.ServiceReference1.AddReservationResponse HelloWebClient2.ServiceReference1.IHelloService.AddReservation(HelloWebClient2.ServiceReference1.ReservationInfo1 request) {
+            return base.Channel.AddReservation(request);
+        }
+        
+        public void AddReservation(int Id, string Brand, string Model, string Regnumber, System.DateTime StartDate, System.DateTime EndDate, int Year, string LastName, bool Returned) {
+            HelloWebClient2.ServiceReference1.ReservationInfo1 inValue = new HelloWebClient2.ServiceReference1.ReservationInfo1();
+            inValue.Id = Id;
+            inValue.Brand = Brand;
+            inValue.Model = Model;
+            inValue.Regnumber = Regnumber;
+            inValue.StartDate = StartDate;
+            inValue.EndDate = EndDate;
+            inValue.Year = Year;
+            inValue.LastName = LastName;
+            inValue.Returned = Returned;
+            HelloWebClient2.ServiceReference1.AddReservationResponse retVal = ((HelloWebClient2.ServiceReference1.IHelloService)(this)).AddReservation(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.AddReservationResponse> HelloWebClient2.ServiceReference1.IHelloService.AddReservationAsync(HelloWebClient2.ServiceReference1.ReservationInfo1 request) {
+            return base.Channel.AddReservationAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.AddReservationResponse> AddReservationAsync(int Id, string Brand, string Model, string Regnumber, System.DateTime StartDate, System.DateTime EndDate, int Year, string LastName, bool Returned) {
+            HelloWebClient2.ServiceReference1.ReservationInfo1 inValue = new HelloWebClient2.ServiceReference1.ReservationInfo1();
+            inValue.Id = Id;
+            inValue.Brand = Brand;
+            inValue.Model = Model;
+            inValue.Regnumber = Regnumber;
+            inValue.StartDate = StartDate;
+            inValue.EndDate = EndDate;
+            inValue.Year = Year;
+            inValue.LastName = LastName;
+            inValue.Returned = Returned;
+            return ((HelloWebClient2.ServiceReference1.IHelloService)(this)).AddReservationAsync(inValue);
+        }
+        
+        public System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation> GetAllReservations() {
+            return base.Channel.GetAllReservations();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation>> GetAllReservationsAsync() {
+            return base.Channel.GetAllReservationsAsync();
         }
     }
 }

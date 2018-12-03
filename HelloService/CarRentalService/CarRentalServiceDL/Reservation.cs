@@ -47,6 +47,8 @@ namespace CarRentalServiceDL
             this.StartDate = reservation.StartDate;
             this.EndDate = reservation.EndDate;
             this.Year = reservation.Car.Year;
+            this.LastName = reservation.Customer.LastName;
+            this.Returned = reservation.Returned;
             
         }
 
@@ -58,13 +60,16 @@ namespace CarRentalServiceDL
         public string Model { get; set; }
         [MessageBodyMember(Order = 4, Namespace = "http://arthead.se/Reservation")]
         public string Regnumber { get; set; }
-        [MessageBodyMember(Order = 6, Namespace = "http://arthead.se/Reservation")]
+        [MessageBodyMember(Order = 5, Namespace = "http://arthead.se/Reservation")]
         public DateTime StartDate { get; set; }
-        [MessageBodyMember(Order = 7, Namespace = "http://arthead.se/Reservation")]
+        [MessageBodyMember(Order = 6, Namespace = "http://arthead.se/Reservation")]
         public DateTime EndDate { get; set; }
-        [MessageBodyMember(Order =5, Namespace = "http://arthead.se/Reservation")]
+        [MessageBodyMember(Order =7, Namespace = "http://arthead.se/Reservation")]
         public int Year { get; set; }
-
+        [MessageBodyMember(Order = 8, Namespace = "http://arthead.se/Reservation")]
+        public string LastName { get; set; }
+        [MessageBodyMember(Order = 9, Namespace = "http://arthead.se/Reservation")]
+        public bool Returned { get; set; }
 
 
     }

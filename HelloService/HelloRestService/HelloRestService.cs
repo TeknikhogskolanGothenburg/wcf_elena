@@ -21,11 +21,8 @@ namespace HelloRestService
     public class HelloRestService : IHelloRestService
     {
 
-        static private ReservationMethods reservMethods = new ReservationMethods();
         static private CustomerMethods customerMethods = new CustomerMethods();
         static private CarMethods carMethods = new CarMethods();
-
-
 
         public string GetAllCars()
         {
