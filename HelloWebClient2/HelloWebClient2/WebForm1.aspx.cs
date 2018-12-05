@@ -25,7 +25,6 @@ namespace HelloWebClient2
             car = client.GetCarById(Convert.ToInt32(txtGetCar.Text));
             if (car._Year != 0)
             {
-
                 lblBrand.Text = car._Brand;
                 lblModel.Text = car._Model;
                 lblYear.Text = Convert.ToString(car._Year);
@@ -197,14 +196,14 @@ namespace HelloWebClient2
 
                 ServiceReference1.ReservationInfo1 reservation = client.GetReservationByBrand(request);
 
-                if (reservation.Model != null)
+                if (reservation.Model != null && reservation.Returned == true)
                 {
                     lblResModel.Text = reservation.Model;
                     lblResReg.Text = reservation.Regnumber;
                     lblStartDate.Text = reservation.StartDate.ToShortDateString();
                     lblEndDate.Text = reservation.EndDate.ToShortDateString();
 
-                    lblResMessage.Text = "This car is reserved";
+                    lblResMessage.Text = "Reservation is found and car is returned";
 
                 }
                 else
@@ -214,14 +213,67 @@ namespace HelloWebClient2
                     lblStartDate.Text = "-";
                     lblEndDate.Text = "-";
 
-                    lblResMessage.Text = "Car have no reservations";
-
+                    lblResMessage.Text = "Car is not returned";
                 }
-
             }
             catch (FaultException faultException)
             {
                 lblResMessage.Text = faultException.Message;
+            }
+
+        }
+
+        protected void btnDeleteReservation_Click(object sender, EventArgs e)
+        {
+
+
+            ServiceReference1.IHelloService client = new ServiceReference1.HelloServiceClient("wsHttpBinding_IHelloService");
+
+            ServiceReference1.ReservationRequestByBrand request = new ServiceReference1.ReservationRequestByBrand();
+            request.LicenseKey = "SuperSecret123";
+            request.CarBrand = txtResBrand.Text;
+
+            ServiceReference1.ReservationInfo1 reservation = client.GetReservationByBrand(request);
+            client.DeleteReservation(reservation);
+
+            lblResModel.Text = "-";
+            lblResReg.Text = "-";
+            lblStartDate.Text = "-";
+            lblEndDate.Text = "-";
+
+            lblResMessage.Text = "Reservation is deleted";
+
+        }
+
+        protected void btnReturnCar_Click1(object sender, EventArgs e)
+        {
+            ServiceReference1.IHelloService client = new ServiceReference1.HelloServiceClient("wsHttpBinding_IHelloService");
+
+            ServiceReference1.ReservationRequestByBrand request = new ServiceReference1.ReservationRequestByBrand();
+            request.LicenseKey = "SuperSecret123";
+            request.CarBrand = txtResBrand.Text;
+
+            try
+            {
+                ServiceReference1.ReservationInfo1 reservation = client.GetReservationByBrand(request);
+                client.ReturnCar(reservation);
+
+                lblResModel.Text = "-";
+                lblResReg.Text = "-";
+                lblStartDate.Text = "-";
+                lblEndDate.Text = "-";
+
+                lblResMessage.Text = "Car is returned";
+            }
+            catch
+            {
+
+                lblResModel.Text = "-";
+                lblResReg.Text = "-";
+                lblStartDate.Text = "-";
+                lblEndDate.Text = "-";
+
+                lblResMessage.Text = "Reservation not found";
             }
 
         }
@@ -326,18 +378,6 @@ namespace HelloWebClient2
             txtBookuntil.Visible = false;
             btnSaveBook.Visible = false;
 
-            txtAvailableRegCar.Text = " ";
-            lblAvailableModel.Text = " ";
-            lblAvailableBrand.Text = " ";
-            txtFirstName.Text = " ";
-            txtLastName.Text = " ";
-            txtPhonenumber.Text = " ";
-            txtEmailAddress.Text = " ";
-            txtBookStartDate.Text = " ";
-            txtBookuntil.Text = " ";
-            btnSaveBook.Text = " ";
-
-
             ServiceReference1.IHelloService client = new ServiceReference1.HelloServiceClient("wsHttpBinding_IHelloService");
 
             ServiceReference1.ReservationRequestByDate request = new ServiceReference1.ReservationRequestByDate();
@@ -352,7 +392,7 @@ namespace HelloWebClient2
 
             List<ServiceReference1.Reservation> allReser = client.GetAllReservations();
             List<int> carId = new List<int>();
-            foreach(ServiceReference1.Reservation res in allReser)
+            foreach (ServiceReference1.Reservation res in allReser)
             {
                 carId.Add(res.CarId);
             }
@@ -408,7 +448,7 @@ namespace HelloWebClient2
         protected void btnMakeReservation_Click(object sender, EventArgs e)
         {
             txtAvailableRegCar.Visible = true;
-
+            btnGetOtherCarDetails.Visible = true;
             lblAvailableModel.Visible = true;
             lblAvailableBrand.Visible = true;
             txtFirstName.Visible = true;
@@ -419,14 +459,29 @@ namespace HelloWebClient2
             txtBookuntil.Visible = true;
             btnSaveBook.Visible = true;
 
+
+        }
+
+        protected void btnGetOtherCarDetails_Click(object sender, EventArgs e)
+        {
+            ServiceReference1.HelloServiceClient client = new ServiceReference1.HelloServiceClient("wsHttpBinding_IHelloService");
+            ServiceReference1.Car car = client.GetCarByString("regnumber", txtAvailableRegCar.Text.ToString());
+            if (car != null)
+            {
+                lblAvailableModel.Text = car._Model;
+                lblAvailableBrand.Text = car._Brand;
+                lblReservationResult.Text = "Fill in customer details";
+            }
+            else
+            {
+                lblReservationResult.Text = "Car not found";
+            }
         }
 
         protected void btnSaveBook_Click(object sender, EventArgs e)
         {
             ServiceReference1.IHelloService client = new ServiceReference1.HelloServiceClient("wsHttpBinding_IHelloService");
-            //ServiceReference1.HelloServiceClient client = new ServiceReference1.HelloServiceClient("wsHttpBinding_IHelloService");
             ServiceReference1.Car car = client.GetCarByReg(txtAvailableRegCar.Text);
-            //ServiceReference1.Customer customer = new ServiceReference1.Customer();
             ServiceReference1.ReservationInfo1 reservation = new ServiceReference1.ReservationInfo1();
             ServiceReference1.CustomerInfo customer = new ServiceReference1.CustomerInfo();
 
@@ -455,7 +510,7 @@ namespace HelloWebClient2
                 reservation.LastName = customer.LastName;
                 reservation.Returned = false;
 
-               
+
                 try
                 {
                     client.AddReservation(reservation);
@@ -506,8 +561,6 @@ namespace HelloWebClient2
             btnSaveBook.Text = " ";
         }
 
-
-
-
+    
     }
 }

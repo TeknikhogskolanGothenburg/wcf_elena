@@ -82,7 +82,7 @@
         <table style="font-family: Arial; border: 1px solid black;">
             <tr>
                 <td colspan="2">
-                    <strong>Add new customer</strong>
+                    <strong>Customers</strong>
                 </td>
             </tr>
             <tr>
@@ -137,7 +137,7 @@
         <table style="font-family: Arial; border: 1px solid black;">
             <tr>
                 <td colspan="2">
-                    <strong>Search for reservations</strong>
+                    <strong>Search for reservations by car brand</strong>
                 </td>
             </tr>
             <tr>
@@ -183,6 +183,12 @@
             <tr>
                 <td>
                     <asp:Button ID="btnGetReservationByBrand" runat="server" Text="Get reservation" OnClick="btnGetReservationByBrand_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="btnDeleteReservation" runat="server" Text="Delete Reservation" OnClick="btnDeleteReservation_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="btnReturnCar" runat="server" Text="Return car" OnClick="btnReturnCar_Click1" />
                 </td>
             </tr>
 
@@ -287,6 +293,8 @@
                 <td>
                     <asp:Label ID="lblAvailableModel" runat="server" Visible="false"></asp:Label>
                 </td>
+            </tr>
+            <tr>
                 <td>
                     <asp:Label ID="lblAvailableBrand" runat="server" Visible="false"></asp:Label>
                 </td>
@@ -324,6 +332,9 @@
             <tr>
                 <td>
                     <asp:Button ID="btnSaveBook" runat="server" Text="Save reservation" Visible="false" OnClick="btnSaveBook_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="btnGetOtherCarDetails" runat="server" Text="Get car details by regnumb" Visible="false" OnClick="btnGetOtherCarDetails_Click" />
                 </td>
             </tr>
         </table>

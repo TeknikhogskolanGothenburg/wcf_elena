@@ -9,7 +9,7 @@ namespace CarRentalServiceDL
 {
     [MessageContract(IsWrapped = true,
       WrapperName = "ReservationRequestBrandObject",
-      WrapperNamespace = "http://arthead.se/Reservation")] //Detta är vad klienten ska skicka till oss i M.Logging
+      WrapperNamespace = "http://arthead.se/Reservation")] 
     public class ReservationRequestByBrand  
     {
         [MessageHeader(Namespace = "http://arthead.se/Reservation")]
@@ -20,7 +20,7 @@ namespace CarRentalServiceDL
 
     [MessageContract(IsWrapped = true,
    WrapperName = "ReservationRequestDateObject",
-   WrapperNamespace = "http://arthead.se/Reservation")] //Detta är vad klienten ska skicka till oss i M.Logging
+   WrapperNamespace = "http://arthead.se/Reservation")] 
     public class ReservationRequestByDate
     {
         [MessageHeader(Namespace = "http://arthead.se/Reservation")]
@@ -37,11 +37,11 @@ namespace CarRentalServiceDL
        WrapperNamespace = "http://arthead.se/Reservation")]
     public class ReservationInfo 
     { 
-        public ReservationInfo() { }//Om jag inte skapar en konstruktor får jag en default konstruktor men får inte det om jag skapar en och får därför inte null heller. Skapa därför en default tom konstruktor.
-        public ReservationInfo(Reservation reservation) //Tar en employee och sätter alla våra properies nedan 
+        public ReservationInfo() { }
+        public ReservationInfo(Reservation reservation) 
         { 
           
-            this.Brand = reservation.Car.Brand; 
+            this.Brand = reservation.Car.Brand;
             this.Model = reservation.Car.Model;
             this.Regnumber = reservation.Car.Regnumber;
             this.StartDate = reservation.StartDate;
@@ -49,7 +49,7 @@ namespace CarRentalServiceDL
             this.Year = reservation.Car.Year;
             this.LastName = reservation.Customer.LastName;
             this.Returned = reservation.Returned;
-            
+
         }
 
         [MessageBodyMember(Order = 1, Namespace = "http://arthead.se/Reservation")]
@@ -79,17 +79,8 @@ namespace CarRentalServiceDL
        WrapperNamespace = "http://arthead.se/Reservation")]
     public class ListReservationsInfo  
     {
-        public ListReservationsInfo() { }//Om jag inte skapar en konstruktor får jag en default konstruktor men får inte det om jag skapar en och får därför inte null heller. Skapa därför en default tom konstruktor.
-        //public ListReservationsInfo(ICollection<Reservation> reservations) //Tar en employee och sätter alla våra properies nedan 
-        //{
-        //    ReservationCollection = new List<ReservationInfo>();
-        //    foreach(Reservation reserv in reservations)
-        //    {
-        //        ReservationInfo ri = new ReservationInfo(reserv);
-        //        ReservationCollection.Add(ri);
-        //    }
-        //}
-        public ListReservationsInfo(ICollection<ReservationInfo> reservations) //Tar en employee och sätter alla våra properies nedan 
+        public ListReservationsInfo() { }
+        public ListReservationsInfo(ICollection<ReservationInfo> reservations) 
         {
             ReservationCollection = reservations;
         }

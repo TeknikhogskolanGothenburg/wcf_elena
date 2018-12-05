@@ -666,11 +666,25 @@ namespace HelloWebClient2.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/AddReservation", ReplyAction="http://tempuri.org/IHelloService/AddReservationResponse")]
         System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.AddReservationResponse> AddReservationAsync(HelloWebClient2.ServiceReference1.ReservationInfo1 request);
         
+        // CODEGEN: Generating message contract since the operation DeleteReservation is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/DeleteReservation", ReplyAction="http://tempuri.org/IHelloService/DeleteReservationResponse")]
+        HelloWebClient2.ServiceReference1.DeleteReservationResponse DeleteReservation(HelloWebClient2.ServiceReference1.ReservationInfo1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/DeleteReservation", ReplyAction="http://tempuri.org/IHelloService/DeleteReservationResponse")]
+        System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.DeleteReservationResponse> DeleteReservationAsync(HelloWebClient2.ServiceReference1.ReservationInfo1 request);
+        
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetAllReservations", ReplyAction="http://tempuri.org/IHelloService/GetAllReservationsResponse")]
         System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation> GetAllReservations();
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/GetAllReservations", ReplyAction="http://tempuri.org/IHelloService/GetAllReservationsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation>> GetAllReservationsAsync();
+        
+        // CODEGEN: Generating message contract since the operation ReturnCar is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/ReturnCar", ReplyAction="http://tempuri.org/IHelloService/ReturnCarResponse")]
+        HelloWebClient2.ServiceReference1.ReturnCarResponse ReturnCar(HelloWebClient2.ServiceReference1.ReservationInfo1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IHelloService/ReturnCar", ReplyAction="http://tempuri.org/IHelloService/ReturnCarResponse")]
+        System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.ReturnCarResponse> ReturnCarAsync(HelloWebClient2.ServiceReference1.ReservationInfo1 request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -895,6 +909,26 @@ namespace HelloWebClient2.ServiceReference1 {
     public partial class AddReservationResponse {
         
         public AddReservationResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteReservationResponse {
+        
+        public DeleteReservationResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ReturnCarResponse {
+        
+        public ReturnCarResponse() {
         }
     }
     
@@ -1171,12 +1205,88 @@ namespace HelloWebClient2.ServiceReference1 {
             return ((HelloWebClient2.ServiceReference1.IHelloService)(this)).AddReservationAsync(inValue);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HelloWebClient2.ServiceReference1.DeleteReservationResponse HelloWebClient2.ServiceReference1.IHelloService.DeleteReservation(HelloWebClient2.ServiceReference1.ReservationInfo1 request) {
+            return base.Channel.DeleteReservation(request);
+        }
+        
+        public void DeleteReservation(int Id, string Brand, string Model, string Regnumber, System.DateTime StartDate, System.DateTime EndDate, int Year, string LastName, bool Returned) {
+            HelloWebClient2.ServiceReference1.ReservationInfo1 inValue = new HelloWebClient2.ServiceReference1.ReservationInfo1();
+            inValue.Id = Id;
+            inValue.Brand = Brand;
+            inValue.Model = Model;
+            inValue.Regnumber = Regnumber;
+            inValue.StartDate = StartDate;
+            inValue.EndDate = EndDate;
+            inValue.Year = Year;
+            inValue.LastName = LastName;
+            inValue.Returned = Returned;
+            HelloWebClient2.ServiceReference1.DeleteReservationResponse retVal = ((HelloWebClient2.ServiceReference1.IHelloService)(this)).DeleteReservation(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.DeleteReservationResponse> HelloWebClient2.ServiceReference1.IHelloService.DeleteReservationAsync(HelloWebClient2.ServiceReference1.ReservationInfo1 request) {
+            return base.Channel.DeleteReservationAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.DeleteReservationResponse> DeleteReservationAsync(int Id, string Brand, string Model, string Regnumber, System.DateTime StartDate, System.DateTime EndDate, int Year, string LastName, bool Returned) {
+            HelloWebClient2.ServiceReference1.ReservationInfo1 inValue = new HelloWebClient2.ServiceReference1.ReservationInfo1();
+            inValue.Id = Id;
+            inValue.Brand = Brand;
+            inValue.Model = Model;
+            inValue.Regnumber = Regnumber;
+            inValue.StartDate = StartDate;
+            inValue.EndDate = EndDate;
+            inValue.Year = Year;
+            inValue.LastName = LastName;
+            inValue.Returned = Returned;
+            return ((HelloWebClient2.ServiceReference1.IHelloService)(this)).DeleteReservationAsync(inValue);
+        }
+        
         public System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation> GetAllReservations() {
             return base.Channel.GetAllReservations();
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<HelloWebClient2.ServiceReference1.Reservation>> GetAllReservationsAsync() {
             return base.Channel.GetAllReservationsAsync();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HelloWebClient2.ServiceReference1.ReturnCarResponse HelloWebClient2.ServiceReference1.IHelloService.ReturnCar(HelloWebClient2.ServiceReference1.ReservationInfo1 request) {
+            return base.Channel.ReturnCar(request);
+        }
+        
+        public void ReturnCar(int Id, string Brand, string Model, string Regnumber, System.DateTime StartDate, System.DateTime EndDate, int Year, string LastName, bool Returned) {
+            HelloWebClient2.ServiceReference1.ReservationInfo1 inValue = new HelloWebClient2.ServiceReference1.ReservationInfo1();
+            inValue.Id = Id;
+            inValue.Brand = Brand;
+            inValue.Model = Model;
+            inValue.Regnumber = Regnumber;
+            inValue.StartDate = StartDate;
+            inValue.EndDate = EndDate;
+            inValue.Year = Year;
+            inValue.LastName = LastName;
+            inValue.Returned = Returned;
+            HelloWebClient2.ServiceReference1.ReturnCarResponse retVal = ((HelloWebClient2.ServiceReference1.IHelloService)(this)).ReturnCar(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.ReturnCarResponse> HelloWebClient2.ServiceReference1.IHelloService.ReturnCarAsync(HelloWebClient2.ServiceReference1.ReservationInfo1 request) {
+            return base.Channel.ReturnCarAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<HelloWebClient2.ServiceReference1.ReturnCarResponse> ReturnCarAsync(int Id, string Brand, string Model, string Regnumber, System.DateTime StartDate, System.DateTime EndDate, int Year, string LastName, bool Returned) {
+            HelloWebClient2.ServiceReference1.ReservationInfo1 inValue = new HelloWebClient2.ServiceReference1.ReservationInfo1();
+            inValue.Id = Id;
+            inValue.Brand = Brand;
+            inValue.Model = Model;
+            inValue.Regnumber = Regnumber;
+            inValue.StartDate = StartDate;
+            inValue.EndDate = EndDate;
+            inValue.Year = Year;
+            inValue.LastName = LastName;
+            inValue.Returned = Returned;
+            return ((HelloWebClient2.ServiceReference1.IHelloService)(this)).ReturnCarAsync(inValue);
         }
     }
 }

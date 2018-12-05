@@ -11,8 +11,8 @@ namespace CarRentalServiceDL
      WrapperNamespace = "http://arthead.se/Car")]
     public class CarInfo 
     {
-        public CarInfo() { }//Om jag inte skapar en konstruktor får jag en default konstruktor men får inte det om jag skapar en och får därför inte null heller. Skapa därför en default tom konstruktor.
-        public CarInfo(Car car) //Tar en employee och sätter alla våra properies nedan  
+        public CarInfo() { }
+        public CarInfo(Car car) 
         {
             this.Id = car.Id;
             this.Brand = car.Brand;
@@ -33,6 +33,7 @@ namespace CarRentalServiceDL
         public string Regnumber { get; set; }
 
     }
+
     [DataContract]
     public class Car
     {

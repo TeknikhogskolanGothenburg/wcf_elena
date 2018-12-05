@@ -19,7 +19,7 @@ namespace HelloRestClient1
 
         }
 
-        protected void btnAddReservation_Click(object sender, EventArgs e)
+        protected void btnAddReservation_Click(object sender, EventArgs e) //btnDeleteCar
         {
             var request = (HttpWebRequest)WebRequest.Create("http://localhost:8082/DeleteCar");
             request.Method = "DELETE";
@@ -85,7 +85,7 @@ namespace HelloRestClient1
 
         }
 
-        protected void btnGetReservation_Click(object sender, EventArgs e)
+        protected void btnGetReservation_Click(object sender, EventArgs e) //btnGetCarById
         {
             var request = (HttpWebRequest)WebRequest.Create("http://localhost:8082/GetCarById");
             request.Method = "POST";
@@ -152,7 +152,7 @@ namespace HelloRestClient1
 
         }
 
-        protected void btnGetCustomer_Click(object sender, EventArgs e)
+        protected void btnGetCustomer_Click(object sender, EventArgs e) //Get customer by first and last name
         {
             var request = (HttpWebRequest)WebRequest.Create("http://localhost:8082/Customer");
             request.Method = "POST";
@@ -209,7 +209,7 @@ namespace HelloRestClient1
                 lblCustomerResult.Text += "{\"errorMessages\":[\"" + x.Message.ToString() + "\"],\"errors\":{}}";
 
             }
-        }
+        } 
 
         protected void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
@@ -296,7 +296,7 @@ namespace HelloRestClient1
             }
             catch (WebException x)
             {
-                // lblResult.Text = "{\"errorMessages\":[\"" + ex.Message.ToString() + "\"],\"errors\":{}}";
+               
                 using (WebResponse response2 = x.Response)
                 {
                     HttpWebResponse httpResponse = (HttpWebResponse)response2;

@@ -40,7 +40,7 @@ namespace CarRentalServiceBL
                 default:
                     return new Car { };
             }
-            //return _context.Cars.Where(x => x.Brand == brand).FirstOrDefault();
+           
         }
 
         public bool AddCar(Car car)
@@ -64,7 +64,6 @@ namespace CarRentalServiceBL
             {
                 var car = _context.Cars.Where(x => x.Regnumber == regnum).First();
                 _context.Cars.Remove(car);
-                //_context.Entry(idForCar).State = EntityState.Deleted;
                 _context.SaveChanges();
                 return true;
             }

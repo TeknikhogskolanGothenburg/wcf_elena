@@ -253,42 +253,43 @@ namespace HelloService
 
         public ReservationInfo GetReservationByBrand(ReservationRequestByBrand request)
         {
+
             if (request.LicenseKey != "SuperSecret123")
             {
                 throw new WebFaultException<string>(
                     "Wrong license key",
-                HttpStatusCode.Forbidden); //Gör ett web fault exception
+                HttpStatusCode.Forbidden); 
             }
             else
             {
                 Reservation reservation = new Reservation();
 
-                //Configuration manager för att få kontakt med vår connectionstring i hosten
                 string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-
 
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     SqlCommand cmd = new SqlCommand("spGetReservationByBrand", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-
                     SqlParameter parameterId = new SqlParameter();
                     parameterId.ParameterName = "@Brand";
-                    //parameterId.Value = id;
                     parameterId.Value = request.CarBrand;
 
                     cmd.Parameters.Add(parameterId);
-
                     con.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
+
                     while (reader.Read())
                     {
                         reservation.Car.Model = reader["Model"].ToString();
                         reservation.Car.Regnumber = reader["Regnumber"].ToString();
                         reservation.StartDate = Convert.ToDateTime(reader["StartDate"]);
                         reservation.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                        reservation.CustomerId = Convert.ToInt32(reader["CustomerId"]);
+                        reservation.Returned = Convert.ToBoolean(reader["Returned"]);
                     }
+                    reservation.Customer = customerMethods.GetCustomerById(reservation.CustomerId);
+
                 }
                 return new ReservationInfo(reservation);
             }
@@ -300,14 +301,13 @@ namespace HelloService
             {
                 throw new WebFaultException<string>(
                     "Wrong license key",
-                HttpStatusCode.Forbidden); //Gör ett web fault exception
+                HttpStatusCode.Forbidden); 
             }
             else
             {
                 ICollection<Reservation> reservations = new List<Reservation>();
                 ICollection<ReservationInfo> ri = new List<ReservationInfo>();
 
-                //Configuration manager för att få kontakt med vår connectionstring i hosten
                 string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
 
                 using (SqlConnection con = new SqlConnection(cs))
@@ -357,13 +357,11 @@ namespace HelloService
             return carMethods.GetCars();
         }
 
-
         public void DeleteCustomer(string option, string name)
         {
             customerMethods.RemoveCustomer(option, name);
 
         }
-
 
         public void AddReservation(ReservationInfo reservation)
         {
@@ -372,8 +370,8 @@ namespace HelloService
             Car car = carMethods.GetCarByRegnum(reservation.Regnumber);
             Customer customer = customerMethods.GetCustomer("lastname", reservation.LastName);
 
-              using (SqlConnection con = new SqlConnection(cs))
-                {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
                 SqlCommand cmd = new SqlCommand("spAddNewReservation", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -415,8 +413,59 @@ namespace HelloService
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
-           
+
+        }
+
+        public void DeleteReservation(ReservationInfo reservation)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+            Reservation reservation2Del = reservMethods.GetReservationByIdAndDate(reservation.StartDate, reservation.EndDate, reservation.Regnumber);
+            if (reservation2Del != null)
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteReservation", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter parameterId = new SqlParameter
+                    {
+                        ParameterName = "@Id",
+                        Value = reservation2Del.Id
+                    };
+                    cmd.Parameters.Add(parameterId);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void ReturnCar(ReservationInfo reservation)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+            Reservation reservation2Del = reservMethods.GetReservationByIdAndDate(reservation.StartDate, reservation.EndDate, reservation.Regnumber);
+            
+                if (reservation2Del != null)
+                {
+                    using (SqlConnection con = new SqlConnection(cs))
+                    {
+                        SqlCommand cmd = new SqlCommand("spReturnCar", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        SqlParameter parameterId = new SqlParameter
+                        {
+                            ParameterName = "@Id",
+                            Value = reservation2Del.Id
+                        };
+                        cmd.Parameters.Add(parameterId);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
         }
 
     }
 }
+

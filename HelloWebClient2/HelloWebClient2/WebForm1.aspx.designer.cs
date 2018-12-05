@@ -238,6 +238,24 @@ namespace HelloWebClient2 {
         protected global::System.Web.UI.WebControls.Button btnGetReservationByBrand;
         
         /// <summary>
+        /// btnDeleteReservation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteReservation;
+        
+        /// <summary>
+        /// btnReturnCar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReturnCar;
+        
+        /// <summary>
         /// lblResMessage control.
         /// </summary>
         /// <remarks>
@@ -470,5 +488,14 @@ namespace HelloWebClient2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveBook;
+        
+        /// <summary>
+        /// btnGetOtherCarDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGetOtherCarDetails;
     }
 }

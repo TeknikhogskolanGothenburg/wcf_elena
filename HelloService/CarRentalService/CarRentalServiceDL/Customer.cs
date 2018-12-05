@@ -8,7 +8,7 @@ namespace CarRentalServiceDL
 {
     [MessageContract(IsWrapped = true,
         WrapperName = "CustomerRequestObject",
-        WrapperNamespace = "http://arthead.se/Customer")] //Detta är vad klienten ska skicka till oss i M.Logging
+        WrapperNamespace = "http://arthead.se/Customer")] 
     public class CustomerRequest
     {
         [MessageHeader(Namespace = "http://arthead.se/Customer")]
@@ -22,8 +22,8 @@ namespace CarRentalServiceDL
        WrapperNamespace = "http://arthead.se/Customer")]
     public class CustomerInfo 
     {
-        public CustomerInfo() { }//Om jag inte skapar en konstruktor får jag en default konstruktor men får inte det om jag skapar en och får därför inte null heller. Skapa därför en default tom konstruktor.
-        public CustomerInfo(Customer customer) //Tar en employee och sätter alla våra properies nedan 
+        public CustomerInfo() { }
+        public CustomerInfo(Customer customer) 
         {
             this.Id = customer.Id;
             this.FirstName = customer.FirstName;  

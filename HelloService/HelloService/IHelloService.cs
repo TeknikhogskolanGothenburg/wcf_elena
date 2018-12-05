@@ -53,10 +53,13 @@ namespace HelloService
         [OperationContract]
         void AddReservation(ReservationInfo reservation);
 
-        //[OperationContract]
-        //void AddNewCustomer(Customer customer);
+        [OperationContract]
+        void DeleteReservation(ReservationInfo reservation); 
 
         [OperationContract]
         List<Reservation> GetAllReservations();
+
+        [OperationContract]
+        void ReturnCar(ReservationInfo reservation);
     }
 }

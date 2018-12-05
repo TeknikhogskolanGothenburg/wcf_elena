@@ -63,8 +63,6 @@ namespace CarRentalServiceBL
 
                 default:
                     return new List<Reservation> { };
-
-
             }
         }
 
@@ -72,24 +70,23 @@ namespace CarRentalServiceBL
 
         {
                 return _context.Reservations.Where(x => x.StartDate == startDate && x.EndDate == endDate).ToList();
-
         }
 
-
-        public void RemoveReservation(int id)
+        public Reservation GetReservationByIdAndDate(DateTime startDate, DateTime endDate, string regnumb)
         {
-            try
-            {
-                var reservation = _context.Reservations.Where(x => x.Id == id).First();
-                _context.Reservations.Remove(reservation);              
-                _context.SaveChanges();
-      
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+            Car car = carMethods.GetCarByRegnum(regnumb);
+            List<Reservation> reservations = GetReservationByDate(startDate, endDate);
+            Reservation res = new Reservation();
 
+            foreach(Reservation r in reservations)
+            {
+              if(r.CarId == car.Id)
+               {
+                    res = r;
+               }
+            }
+            
+            return res;
+        }
     }
 }
