@@ -1,0 +1,21 @@
+Jag har valt att ha ServiceHostarna, BL och DL delarna i samma sln, då det är enklast att gå öveblick. Jag har två client sln, varav en är REST. Det hade nog inte varit några problem att ha REST metoderna och metoderna som använder sig av Service referensen i samma sln men jag har ändå valt att skilja dem åt, för att för min egen del få bättre överblick, då metoderna började växa till antal i WebClient sln. 
+
+En viktig markering är att jag inte har döpt om de två första eventmetoderna i HelloRestClient1 WebForm sln. btnAddReservation_Click ska vara btnDeleteCar, btnGetReservation_Click ska vara btnGetCarById. Detta pga namnbytet har tidigare krånglat för mig och knapparna har slutat "svara". 
+
+Jag har valt att använda wsHttpBinding i min HelloService host, då den (i jämförelse med exempelvis basicHttpBinding) har fler säkerhets tillägg så som att datan är krypterad by default, använder nyare SOAP version med Address specifikationer samt returnerar meddelanden i anropsordningen. 
+
+I min RestHost använder jag webHttpBinding, då den just används för REST kommunikation, då jag bara skriver in adressen i url och får tillbaka i mitt fall json-response från min service (i jamförelse med wsHttpBinding där jag får en wsdl fil som innehåller info om meddelandet).
+
+I min RestService samt RestClient har jag försökt att använt newtonsoft för att convertera meddelande från json till objekt och vice versa. I RestClienten var jag tvungen att åter skapa klasserna jag använde i RestServicen (Car och Customer) för att kunna konvertera json-värden till c# objekt. Kanske skulle man kunna klara sig utan detta/ göra på ett annat sätt, vilket hade varit bättre, eftersom huvudpoängen med wcf är återanvändning/delning inte bara av tjänster men också av resurser. 
+
+Jag har valt att hantera exceptions på lite olika ställen
+FaultException:
+    -  GetCarByString() i HelloService, felmeddelandet visas i HellloWebClient när denna metod anropas och returnerar fel.
+WebFaultException:
+	- används i HelloService metoderna där jag använder Request classer. Eftersom metoderna inte används som REST kommer webFaultException att bete sig som vanlig FaultException.
+WebException:
+ -I RestClient använder jag mig av webresponse som visar mig error meddelandet som returneras med responsen samt status koden.
+
+Jag anser att felhantering är särkilt viktig när man jobbar med metoder/tjänster som inte returnerar något, t.ex. Save metoder. Om det går fel kommer klienten i det verkliga livet aldrig få reda på om metoden gått igenom eller inte. Jag har dock inte hunnit implementera det på alla sådana metoder i detta projektet.
+
+Jag har använt message logging i alla mina projekt, såväl hostprojekten som client eftersom det har varit kämpit att få allting att fungera samt, svårt att debugga och därför har det varit smidigt att få lite info i loggningen. 
