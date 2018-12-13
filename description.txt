@@ -2,7 +2,7 @@ Jag har valt att ha ServiceHostarna, BL och DL delarna i samma sln, då det är en
 
 En viktig markering är att jag inte har döpt om de två första eventmetoderna i HelloRestClient1 WebForm sln. btnAddReservation_Click ska vara btnDeleteCar, btnGetReservation_Click ska vara btnGetCarById. Detta pga namnbytet har tidigare krånglat för mig och knapparna har slutat "svara". 
 
-Jag har valt att använda wsHttpBinding i min HelloService host, då den (i jämförelse med exempelvis basicHttpBinding) har fler säkerhets tillägg så som att datan är krypterad by default, använder nyare SOAP version med Address specifikationer samt returnerar meddelanden i anropsordningen. 
+Jag har valt att använda wsHttpBinding i min HelloService host, då den (i jämförelse med exempelvis basicHttpBinding) har fler säkerhets tillägg så som att datan är krypterad by default, Message Security, använder nyare SOAP version med Address specifikationer samt returnerar meddelanden i anropsordningen. 
 
 I min RestHost använder jag webHttpBinding, då den just används för REST kommunikation, då jag bara skriver in adressen i url och får tillbaka i mitt fall json-response från min service (i jamförelse med wsHttpBinding där jag får en wsdl fil som innehåller info om meddelandet).
 
